@@ -1,0 +1,87 @@
+@charset "UTF-8";
+
+/* 초기화 */
+* {margin: 0px; padding: 0px;}
+body {
+  font-size: 15px;
+  font-family: "맑은 고딕", "돋음";
+  text-align: left;
+}
+/* 리스트 블릿 초기화 */
+ul, ol {list-style-type: none;}
+
+/* a태그 초기화 */
+a:link {text-decoration: none; color: #000000;}
+
+
+/* 전체 레이아웃 */
+#wrap {width: 800px; margin: 0px auto;}
+#header {width: 100%; height: 80px;
+    padding-top: 15px;
+    text-align: center;}
+    
+#footer {
+    width: 100%; height: 60px;
+    padding-top: 1px;
+    text-align: center;
+    line-height: 50px;
+    background-color: #01426a;}
+
+
+#body {
+	width: 100%; height: 390px;
+	padding-top: 160px;
+	padding-bottom: 22px;
+	background-image: url(../image/running.jpg);
+    background-size: 100%;
+ }
+
+
+/* 로그인폼 라인, float */
+#loginForm {
+	width: 500px; height: 160px;
+	border: 0.5px solid #b0b0b0;
+	margin: 0px auto;
+	padding: 60px 7px 50px 7px;
+} 
+
+
+/* 로그인 버튼영역 */
+#loginForm .button-area {
+	margin: 15px 0px 0px 0px;
+	text-align: center;
+}
+
+/* 로그인 버튼 */
+#loginForm .button-area button {
+    width: 100px;
+    padding: 5px;
+    cursor: pointer;
+    color: #b0b0b0;
+    background-color: black;
+    opacity: 0.6;
+    border-radius: 5px;
+}
+
+/* 로그인 텍스트정렬 */
+#loginForm .form-group .form-text {
+    display: inline-block;
+    width: 150px;
+    text-align: right;
+    font-weight: bold;
+    color: #b0b0b0;
+    margin-right: 20px;
+}
+
+/* 로그인 실패 텍스트 중앙 정렬 */
+#loginForm .center {
+    text-align: center;
+ 	font-size: 12px;
+    color: #b0b0b0;
+}
+
+/* 로그인 텍스트정렬 */
+input[type=text] {
+	padding: 5px;
+	margin-bottom: 10px;
+}
