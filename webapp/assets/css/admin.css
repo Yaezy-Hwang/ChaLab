@@ -1,0 +1,99 @@
+@charset "UTF-8";
+
+/* header */
+#header {
+    padding: 20px 0px 10px 0px;
+}
+#footer {
+	margin-top: 10px;
+}
+#header > a{
+	float: left;
+	margin: 10px ;
+}
+#header ul {
+	float: right;
+}
+#header ul>li {
+	display: inline-block;
+    margin: 25px 30px;
+    font-size: 16px;
+    font-weight: 600;
+}
+/* button */
+button {
+  padding: 0px 5px 3px 10px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+/* aside */
+#container #aside {
+	float: left;
+	width: 200px; 
+	min-height: 688px;
+	background-color: #fff;
+	border: 1px solid #e5e5e5;
+	color: #fff;
+}
+#container #aside>h2 {
+	text-align: center;
+	font-size: 18px;
+	font-weight: 700;
+	color: #fff;
+	background-color: #01426a;
+	padding: 20px 0px 20px 0px;
+	margin-bottom: 10px;
+}
+#container #aside>ol>li {
+  padding: 10px;
+  font-size: 16px;
+  text-align: center;
+}
+#container #aside>ol>li:hover {
+	background-color: #f8f8f8;
+}
+#container .contents-wrapper {
+    float: right;
+    width: 928px;
+    min-height: 628px;
+    background-color: #fff;
+    border: 1px solid #e5e5e5;
+    padding: 30px;
+}
+
+/* 선수 정보 */
+.contents-wrapper h2{
+	font-size: 18px;
+	font-weight: 600;
+	margin: 15px 10px 25px 10px;
+}
+.contents-wrapper #athlete-list tr th,
+.contents-wrapper #athlete-list tr td{
+	padding: 10px 20px;
+	text-align: left;
+	vertical-align: middle;
+	height: 30px;
+	border-bottom: 1px solid #e5e5e5;
+}
+.contents-wrapper #athlete-list tr th{
+	border-bottom: 3px solid #e5e5e5;
+}
+.contents-wrapper #athlete-list tr td.name,
+.contents-wrapper #athlete-list tr td.field{
+	width: 365px;
+}
+
+
+/* 그래프 */
+#graph {
+  padding-top: 16px;
+}
+
+/* clearfix */
+.clearfix {*zoom: 1;}
+.clearfix:before, .clearfix:after {display: block; content: ''; line-height: 0;}
+.clearfix:after {clear: both;}
+
+

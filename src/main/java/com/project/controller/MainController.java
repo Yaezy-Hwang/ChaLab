@@ -10,8 +10,7 @@ public class MainController {
 	public String main() {
 		System.out.println("/main");
 		
-		return "main/index";
+		return "index";
 	}
-	
 
 }

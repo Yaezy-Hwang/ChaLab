@@ -3,7 +3,7 @@
 
 <mapper namespace="user">
 
-	<select id = "selectUser" parameterType= "com.project.vo.UserVo" resultType="com.project.vo.UserVo">
+	<select id = "selectUser" parameterType= "UserVo" resultType="UserVo">
 		<![CDATA[
 			SELECT
 			    user_no "userNo",

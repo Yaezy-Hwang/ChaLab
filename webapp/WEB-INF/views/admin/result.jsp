@@ -7,42 +7,42 @@
 
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>이름을 뭐라고 해야할지</title>
 
-<link href="${pageContext.request.contextPath}/assets/css/home.css"
-	rel="stylesheet" type="text/css">
-<link href="${pageContext.request.contextPath}/assets/css/result.css"
-	rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/fontawesome/all.css">
+
+<link href="${pageContext.request.contextPath}/assets/css/reset.css"  rel="stylesheet" type="text/css">
+<link href="${pageContext.request.contextPath}/assets/css/main.css" rel="stylesheet" type="text/css">
+<link href="${pageContext.request.contextPath}/assets/css/admin.css" rel="stylesheet" type="text/css">
 
 </head>
 
 <body>
-	<div id="wrap">
-		<div id="header">
-			<img
-				src="${pageContext.request.contextPath}/assets/image/스포츠의학대학원.png"
-				alt="Logo">
-			<form>
-				<ol>
-					<li><a href="${pageContext.request.contextPath}/user/logout">로그아웃</a></li>
-					<li><a href="${pageContext.request.contextPath}/user/modify">회원정보수정</a></li>
-				</ol>
-			</form>
-		</div>
+	<div id="container">
+		<c:import url="/WEB-INF/views/includes/header.jsp"></c:import>
+<%-- 		
+		<ol>
+			<li><a href="${pageContext.request.contextPath}/user/logout">로그아웃</a></li>
+			<li><a href="${pageContext.request.contextPath}/user/modify">회원정보수정</a></li>
+		</ol>
+		 --%>
 		<!-- //header -->
 
-		<div id="contents">
-			<div id="aside">
-				<h2>Medical Record</h2>
-				<ol>
-					<li>2019.11</li>
-					<li>2019.12</li>
-					<li>2020.01</li>
-					<li>2020.02</li>
-					<li>2020.03</li>
-				</ol>
-			</div>
-			<!-- //aside -->
+		<div id="aside">
+			<h2>Medical Record</h2>
+			<ol>
+				<!-- 반복 시작 -->
+				<li>2019.11</li>
+				<li>2019.12</li>
+				<li>2020.01</li>
+				<li>2020.02</li>
+				<li>2020.03</li>
+				<!-- 반복 끝 -->
+			</ol>
+		</div>
+		<!-- //aside -->
 
 
 			<div id="table">
@@ -99,15 +99,12 @@
 			</div>
 
 
-			<div id="footer">
-				<p>copyright (c) 2020 황예지. all rights reserved</p>
-			</div>
-			<!-- footer -->
-		</div>
-		<!-- content -->
 
 	</div>
 	<!-- wrap -->
+	
+	<c:import url="/WEB-INF/views/includes/footer.jsp"></c:import>
+	<!-- footer -->
 </body>
 
 </html>
