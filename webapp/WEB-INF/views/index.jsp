@@ -36,13 +36,13 @@
 							<!-- 아이디 -->
 							<div class="form-group">
 								<label class="form-text" for="input-uid">ID</label> <input
-									type="text" id="input-uid" name="id" value="" placeholder="ID">
+									type="text" id="input-uid" name="userId" value="admin01" placeholder="ID">
 							</div>
 							<br>
 							<!-- 비밀번호 -->
 							<div class="form-group">
 								<label class="form-text" for="input-pass">PW</label> <input
-									type="password" id="input-pass" name="pw" value=""
+									type="password" id="input-pass" name="pw" value="1234"
 									placeholder="PASSWORD">
 							</div>
 							<div class="center">
@@ -60,7 +60,7 @@
 					
 					<c:otherwise>
 						<div>
-							<a href="${pageContext.request.contextPath}/admin/admin-main">ADMIN 페이지로 이동</a>
+							<a href="${pageContext.request.contextPath}/admin/manageUser">ADMIN 페이지로 이동</a>
 						</div>
 					</c:otherwise>
 				</c:choose>

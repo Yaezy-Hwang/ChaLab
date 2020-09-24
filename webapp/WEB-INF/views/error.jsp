@@ -29,8 +29,7 @@
     <script src="${pageContext.request.contextPath}/assets/js/modal.js"></script>
 
     <!-- 해당 페이지 css -->
-    <link rel="stylesheet"
-          href="${pageContext.request.contextPath}/assets/css/main.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css">
 
     <style>
         .img-box {

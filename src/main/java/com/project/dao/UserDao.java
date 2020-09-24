@@ -20,5 +20,17 @@ public class UserDao {
 		
 		return authUser;
 	}
+	
+	public int selectSameId(String id) {
+		System.out.println("userDao.selectSameId");
+		
+		return sqlSession.selectOne("user.selectSameId", id);
+	}
+
+	public boolean insertUser(UserVo vo) {
+		System.out.println("userDao.insertUser");
+		
+		return sqlSession.insert("user.insertUser", vo) == 1;
+	}
 
 }

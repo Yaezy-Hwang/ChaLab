@@ -17,5 +17,17 @@ public class UserService {
 		
 		return userDao.selectUser(userVo);
 	}
+	
+	public int idCheck(String id) {
+		System.out.println("userService.idCheck");
+		
+		return userDao.selectSameId(id);
+	}
+
+	public boolean signUp(UserVo vo) {
+		System.out.println("userService.signUp");
+		
+		return userDao.insertUser(vo);
+	}
 
 }

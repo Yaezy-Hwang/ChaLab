@@ -3,37 +3,32 @@ package com.project.vo;
 public class UserVo {
 	
     private int userNo;
-    private String id;
+    private String userId;
     private String pw;
     private String name;
-    private String type;
+    private String userType;
     private String gender;
     private int weight;
     private int height;
+    private int adminNo;
     private String adminName;
+    private String field;
     
     public UserVo() {}
 
-    public UserVo(int userNo, String id, String pw, String name, String type, String gender, int weight, int height,
-			String adminName) {
+    public UserVo(int userNo, String userId, String pw, String name, String userType, String gender, int weight,
+			int height, int adminNo, String adminName, String field) {
 		this.userNo = userNo;
-		this.id = id;
+		this.userId = userId;
 		this.pw = pw;
 		this.name = name;
-		this.type = type;
+		this.userType = userType;
 		this.gender = gender;
 		this.weight = weight;
 		this.height = height;
+		this.adminNo = adminNo;
 		this.adminName = adminName;
-	}
-
-
-	public String getAdminName() {
-		return adminName;
-	}
-
-	public void setAdminName(String adminName) {
-		this.adminName = adminName;
+		this.field = field;
 	}
 
 	public int getUserNo() {
@@ -44,12 +39,12 @@ public class UserVo {
 		this.userNo = userNo;
 	}
 
-	public String getId() {
-		return id;
+	public String getUserId() {
+		return userId;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
 
 	public String getPw() {
@@ -68,12 +63,12 @@ public class UserVo {
 		this.name = name;
 	}
 
-	public String getType() {
-		return type;
+	public String getUserType() {
+		return userType;
 	}
 
-	public void setType(String type) {
-		this.type = type;
+	public void setUserType(String userType) {
+		this.userType = userType;
 	}
 
 	public String getGender() {
@@ -100,10 +95,37 @@ public class UserVo {
 		this.height = height;
 	}
 
+	public int getAdminNo() {
+		return adminNo;
+	}
+
+	public void setAdminNo(int adminNo) {
+		this.adminNo = adminNo;
+	}
+
+	public String getAdminName() {
+		return adminName;
+	}
+
+	public void setAdminName(String adminName) {
+		this.adminName = adminName;
+	}
+
+	public String getField() {
+		return field;
+	}
+
+	public void setField(String field) {
+		this.field = field;
+	}
+
 	@Override
 	public String toString() {
-		return "UserVo [userNo=" + userNo + ", id=" + id + ", pw=" + pw + ", name=" + name + ", type=" + type
-				+ ", gender=" + gender + ", weight=" + weight + ", height=" + height + ", adminName=" + adminName + "]";
+		return "UserVo [userNo=" + userNo + ", userId=" + userId + ", pw=" + pw + ", name=" + name + ", userType="
+				+ userType + ", gender=" + gender + ", weight=" + weight + ", height=" + height + ", adminNo=" + adminNo
+				+ ", adminName=" + adminName + ", field=" + field + "]";
 	}
+
+	
 
 }

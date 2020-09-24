@@ -19,6 +19,10 @@
     margin: 25px 30px;
     font-size: 16px;
     font-weight: 600;
+    color: #01426a;
+}
+#header ul>li a{
+    color: #01426a;
 }
 /* button */
 button {
@@ -80,12 +84,141 @@ button {
 .contents-wrapper #athlete-list tr th{
 	border-bottom: 3px solid #e5e5e5;
 }
-.contents-wrapper #athlete-list tr td.name,
-.contents-wrapper #athlete-list tr td.field{
-	width: 365px;
+.contents-wrapper #athlete-list tr td{
+	width: 240px;
+}
+.contents-wrapper #athlete-list tr td.td-icon{
+	width: 49px;
+	text-align: right;
+}
+.contents-wrapper #athlete-list tr td .fa-cog {
+	font-size: 18px;
+	cursor: pointer;
+}
+/* 선수 정보 모달 */
+#athleteInfo .modal-wrapper .modal-content h2 {
+	padding-left: 55px;
+	text-align: left;
+	color: #01426a;
+}
+#athleteInfo .modal-wrapper .modal-content p{
+    font-size: 25px;
+    position: absolute;
+    top: 25px;
+    right: 35px;
+	color: #01426a;
+	cursor: pointer;
+}
+#athleteInfo .modal-wrapper .modal-content div{
+	margin: 40px;
+	padding: 25px 0px;
+	border: 1px solid #01426a;
+	position: relative;
+}
+#athleteInfo .modal-wrapper .modal-content div table .tr-pwCheck{
+	visibility:hidden;
+}
+#athleteInfo .modal-wrapper .modal-content #modifyAthlete,
+#athleteInfo .modal-wrapper .modal-content #modifyComplete{
+	width: 90px;
+    height: 30px;
+    padding: 5px;
+    background: #01426a;
+    color: #fff;
+    font-weight: 700;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+}
+/* 선수 등록 */
+#container .contents-wrapper .signUp-wrapper{
+	margin: 40px;
+	padding: 25px;
+	border: 1px solid #01426a;
+}
+#container .contents-wrapper form .signUp-wrapper table,
+#athleteInfo .modal-wrapper .modal-content div table {
+	margin: auto;
+}
+#container .contents-wrapper form .signUp-wrapper table th,
+#container .contents-wrapper form .signUp-wrapper table td,
+#athleteInfo .modal-wrapper .modal-content div table th,
+#athleteInfo .modal-wrapper .modal-content div table td {
+	padding: 5px;
+	vertical-align: middle;
+}
+#container .contents-wrapper form .signUp-wrapper table th,
+#athleteInfo .modal-wrapper .modal-content div table th{
+	width: 75px;
+    height: 50px;
+    padding-right: 15px;
+    text-align: right;
+    color: #01426a;
+	font-weight: 700;
+}
+#container .contents-wrapper form .signUp-wrapper table td button{
+	margin-left: 10px;
+}
+#container .contents-wrapper form .signUp-wrapper table td,
+#athleteInfo .modal-wrapper .modal-content div table td{
+    text-align: left;
 }
 
-
+#container .contents-wrapper form .signUp-wrapper table td p{
+	font-size: 13px;
+}
+#container .contents-wrapper form .signUp-wrapper table td input, 
+#container .contents-wrapper form .signUp-wrapper table th select,
+#athleteInfo .modal-wrapper .modal-content div table th select,
+#athleteInfo .modal-wrapper .modal-content div table td input {
+	border: 1px solid #e5e5e5;
+	border-radius: 5px;
+}
+#container .contents-wrapper form .signUp-wrapper table th select,
+#athleteInfo .modal-wrapper .modal-content div table th select{
+	margin: 0px 5px;
+	padding: 5px;
+	width: 135px;
+}
+#container .contents-wrapper form .signUp-wrapper table th select{
+	margin: 0px 18px 0px 5px;
+}
+#container .contents-wrapper form .signUp-wrapper table td input[type="radio"]{
+	display: none;
+}
+#container .contents-wrapper form .signUp-wrapper table td label{
+	display: inline-block;
+    width: 75px;
+    height: 20px;
+    padding: 8px 5px 5px 5px;
+    border: 1px solid #01426a;
+    border-radius: 16px;
+    color: #01426a;
+    font-weight: 700;
+    text-align: center;
+}
+#athleteInfo .modal-wrapper .modal-content div table tr:first-child{
+	text-align: left;
+}
+#athleteInfo .modal-wrapper .modal-content div table{
+	margin: auto 20px;
+}
+#container .contents-wrapper form .signUp-wrapper table td input[type="radio"]:checked + label {
+  background: #01426a;
+  color: #fff;
+  font-weight: 700;
+}
+#container .contents-wrapper form .signUp-wrapper table td input[type="number"],
+#athleteInfo .modal-wrapper .modal-content div table td input[type="number"] {
+	width: 70%;
+	margin-right: 5px;
+}
+#container .contents-wrapper form button[type="submit"]{
+	width: 200px;
+	height: 40px;
+	margin: 0px 365px;
+}
 /* 그래프 */
 #graph {
   padding-top: 16px;
