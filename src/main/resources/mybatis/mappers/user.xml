@@ -3,7 +3,7 @@
 
 <mapper namespace="user">
 
-	<select id = "selectUser" parameterType= "UserVo" resultType="UserVo">
+	<select id = "selectUser" parameterType= "UserVo" resultType="com.project.vo.UserVo">
 		<![CDATA[
 		
 			SELECT userNo, userId, password pw, name, userType
@@ -24,7 +24,7 @@
 		 ]]>
 	</select>
 	
-	<select id = "selectAthList" resultType="UserVo">
+	<select id = "selectAthList" resultType="com.project.vo.UserVo">
 		<![CDATA[
 		
 			SELECT u.userNo, u.userId, u.name, u.gender, u.field, a.name adminName
@@ -36,7 +36,7 @@
 		]]>
 	</select>
 	
-	<select id="selectAthInfo" parameterType= "int" resultType="UserVo">
+	<select id="selectAthInfo" parameterType= "int" resultType="com.project.vo.UserVo">
 		<![CDATA[
 		
 			SELECT u.userNo, u.userId, u.password pw, u.name, u.gender, u.weight, u.height, u.field, a.userNo adminNo, a.name adminName
@@ -47,7 +47,7 @@
 		 ]]>
 	</select>
 	
-	<select id = "selectAdminList" resultType="UserVo">
+	<select id = "selectAdminList" resultType="com.project.vo.UserVo">
 		<![CDATA[
 		
 			SELECT userNo, name
@@ -82,6 +82,7 @@
 		
 		 ]]>
 	</update>
+	
 
 </mapper>
 <!-- 

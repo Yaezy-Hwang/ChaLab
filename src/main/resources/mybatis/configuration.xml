@@ -2,12 +2,20 @@
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
 
 <configuration>
-    <typeAliases>
-            <typeAlias alias="UserVo" type="com.project.vo.UserVo" />
-    </typeAliases>
+	<settings>
+		<setting name="jdbcTypeForNull" value="NULL" />
+	</settings>
+	
+	<typeAliases>
+		<typeAlias alias="UserVo" type="com.project.vo.UserVo" />
+		<typeAlias alias="LactateVo" type="com.project.vo.LactateVo" />
+		<typeAlias alias="HeartRateVo" type="com.project.vo.HeartRateVo" />
+	</typeAliases>
 
-    <mappers>
-        <mapper resource="mybatis/mappers/user.xml" />
-        <!-- <mapper resource="mybatis/mappers/guestbook.xml" /> -->
-    </mappers>
+	<mappers>
+		<mapper resource="mybatis/mappers/user.xml" />
+		<mapper resource="mybatis/mappers/result.xml" />
+		<!-- <mapper resource="mybatis/mappers/guestbook.xml" /> -->
+	</mappers>
+
 </configuration>

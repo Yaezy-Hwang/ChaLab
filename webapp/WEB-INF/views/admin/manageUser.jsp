@@ -40,21 +40,31 @@
 					<th>종목</th>
 					<th>담당자</th>
 					<th></th>
+					<th></th>
 				</tr>
 				<c:forEach items="${athleteMap.athList}" var="athlete">
 					<tr>
 						<td>
-							${athlete.name} (${athlete.userId}) 
-							<c:if test="${athlete.gender eq 'male'}">
-								<i class="fas fa-mars"></i>
-							</c:if>
-							<c:if test="${athlete.gender eq 'female'}">
-								<i class="fas fa-venus"></i>
-							</c:if>
+							<a href="${pageContext.request.contextPath}/result/resultPage/${athlete.userNo}" class="showRecord">
+								${athlete.name} (${athlete.userId}) 
+								<c:if test="${athlete.gender eq 'male'}">
+									<i class="fas fa-mars"></i>
+								</c:if>
+								<c:if test="${athlete.gender eq 'female'}">
+									<i class="fas fa-venus"></i>
+								</c:if>
+							</a>
 						</td>
 						<td>${athlete.field}</td>
 						<td>${athlete.adminName}</td>
-						<td class="td-icon"><i class="fas fa-cog" onclick="showAthInfo(${athlete.userNo});"></i></td>
+						<td class="td-icon">
+							<a href="${pageContext.request.contextPath}/result/recordPage/${athlete.userNo}">
+								<i class="fas fa-edit"></i>
+							</a>
+						</td>
+						<td class="td-icon">
+							<i class="fas fa-cog" onclick="showAthInfo(${athlete.userNo});"></i>
+						</td>
 					</tr>
 				</c:forEach>
 			</table>
@@ -134,10 +144,32 @@
 
 <script type="text/javascript">
 
+/* 설정 호버 했을 때 툴팁 */
+$(".td-icon .fa-cog").hover(function(){
+	$(this).append("<span class='tipModify'>정보 수정</span>");
+}, function(){
+	$(".tipModify").remove();
+});
+
+/* edit 호버 했을 때 툴팁 */
+$(".td-icon .fa-edit").hover(function(){
+	$(this).append("<span class='tipModify'>기록 하기</span>");
+}, function(){
+	$(".tipModify").remove();
+});
+
+/* 이름 호버 했을 때 툴팁 */
+$("#athlete-list tr td .showRecord").hover(function(){
+	$(this).append("<span class='tipShowRecord'>측정 기록 보기</span>");
+}, function(){
+	$(".tipShowRecord").remove();
+});
+
 /* 정보 수정 클릭 */
 $(".modal-content").on("click", "#modifyAthlete", function(){
 	$(this).text("수정완료");
 	$(this).attr("id","modifyComplete");
+	$(this).parent().append('<button id="btn-cancel" onclick="cancelModify();">취소</button>');
 	
 	$("select[name='adminNo'] option").prop('disabled', false);
 	$("#athleteInfo input").prop('disabled', false);
@@ -216,12 +248,14 @@ $(".modal-content").on("click", "#modifyComplete", function(){
 			
 			if(result){
 				alert("선수 정보가 수정되었습니다 :) ");
+	
+				cancelModify();
 				forceHideModal('#athleteInfo');
 				location.reload(true);
+				
 			}else {
 				alert("관리자에게 문의 바랍니다 :( ");
 			}
-			
 			
 		},
 		error : function(XHR, status, error) {
@@ -229,14 +263,20 @@ $(".modal-content").on("click", "#modifyComplete", function(){
 		}
 	})
 	
-	$(this).text("정보수정");
-	$(this).attr("id","modifyAthlete");
+});
+
+/* 수정 취소 클릭 */
+function cancelModify(){
+	
+	$("#modifyComplete").text("정보수정");
+	$("#modifyComplete").attr("id","modifyAthlete");
 	
 	$("select[name='adminNo'] option").prop('disabled', true);
 	$("#athleteInfo input").prop('disabled', true);
 	$(".tr-pwCheck").css("visibility", "hidden");
 	
-});
+	$("#btn-cancel").remove();
+}
 
 /* 모달에 값 넣기 */
 function showAthInfo(userNo){

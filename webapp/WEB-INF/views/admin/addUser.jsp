@@ -40,11 +40,9 @@
 							<th colspan="2">RESPONSIBILITY
 								<select name="adminNo">
 									<option value="">담당자 선택</option>
-									<!-- 반복 -->
-									<option value="6">손주연</option>
-									<option value="2">손수정</option>
-									<option value="3">손정범</option>
-									<!-- 반복끝 -->
+									<c:forEach items="${adminList}" var="admin">
+										<option value="${admin.userNo}">${admin.name}</option>
+									</c:forEach>
 								</select>
 							</th>
 						</tr>

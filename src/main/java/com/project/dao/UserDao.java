@@ -16,7 +16,6 @@ public class UserDao {
 		System.out.println("userDao.selectUser");
 		
 		UserVo authUser = sqlSession.selectOne("user.selectUser", userVo);
-		System.out.println(authUser);
 		
 		return authUser;
 	}

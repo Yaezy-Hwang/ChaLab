@@ -27,8 +27,6 @@ public class AdminDao {
 	}
 
 	public boolean updateAthInfo(UserVo userVo) {
-		System.out.println(userVo);
-		
 		return sqlSession.update("user.updateAthInfo", userVo) == 1;
 	}
 	
