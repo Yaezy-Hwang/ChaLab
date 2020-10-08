@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="result">
+
+	<select id="selectKey" resultType="int">
+		<![CDATA[
+			SELECT SEQ_RESULT_NO.nextval FROM dual
+		 ]]>
+	</select>
+
+	<insert id="insertLactate" parameterType="LactateVo">
+		<![CDATA[
+		
+			INSERT INTO result
+			VALUES(#{resultNo}, #{userNo}, SYSDATE, 'lactate', #{lacStable}, #{lac20}, #{lac25}, #{lac30}, #{lac35}, #{lac40}, #{lac45}, #{lac50}, #{lac5min})
+			
+		 ]]>
+	</insert>
+	
+	<insert id="insertHeartRate" parameterType="HeartRateVo">
+		<![CDATA[
+		
+			INSERT INTO result
+			VALUES(#{resultNo}, #{userNo}, SYSDATE, 'heartRate', #{heartStable}, #{heart20}, #{heart25}, #{heart30}, #{heart35}, #{heart40}, #{heart45}, #{heart50}, #{heart5min})
+			
+		 ]]>
+	</insert>
+	
+	<select id="selectTestDate" parameterType="int" resultType="LactateVo">
+		<![CDATA[
+		
+			SELECT  DISTINCT resultNo, to_char(measuredate, 'yyyy-mm-dd') measureDate
+			FROM    result
+			WHERE	userNo = #{userNo}
+			
+		 ]]>
+	</select>
+	
+	<select id="selectRecentLac" parameterType="int" resultType="LactateVo">
+		<![CDATA[
+		
+			SELECT	TO_CHAR(measuredate, 'yyyy-mm-dd') measureDate, stable lacStable, speed20 lac20, speed25 lac25, speed30 lac30, speed35 lac35, speed45 lac45, speed50 lac50, recovery5min lac5min
+			FROM    result
+			WHERE	resultNo = (SELECT MAX(resultNo)
+					                    FROM result
+					                    WHERE userNo = #{userNo})
+			AND category = 'lactate'
+
+		 ]]>
+	</select>
+	
+	<select id="selectRecentHR" parameterType="int" resultType="HeartRateVo">
+		<![CDATA[
+		
+			SELECT	TO_CHAR(measuredate, 'yyyy-mm-dd') measureDate, stable heartStable, speed20 heart20, speed25 heart25, speed30 heart30, speed35 heart35, speed45 heart45, speed50 heart50, recovery5min heart5min
+			FROM    result
+			WHERE	resultNo = (SELECT MAX(resultNo)
+					                    FROM result
+					                    WHERE userNo = #{userNo})
+			AND category = 'heartRate'
+
+		 ]]>
+	</select>
+	
+	<select id="selectFirstLac" parameterType="int" resultType="LactateVo">
+		<![CDATA[
+		
+			SELECT	TO_CHAR(measuredate, 'yyyy-mm-dd') measureDate, stable lacStable, speed20 lac20, speed25 lac25, speed30 lac30, speed35 lac35, speed45 lac45, speed50 lac50, recovery5min lac5min
+			FROM    result
+			WHERE	resultNo = (SELECT MIN(resultNo)
+					                    FROM result
+					                    WHERE userNo = #{userNo})
+			AND category = 'lactate'
+
+		 ]]>
+	</select>
+	
+	<select id="selectFirstHR" parameterType="int" resultType="HeartRateVo">
+		<![CDATA[
+		
+			SELECT	TO_CHAR(measuredate, 'yyyy-mm-dd') measureDate, stable heartStable, speed20 heart20, speed25 heart25, speed30 heart30, speed35 heart35, speed45 heart45, speed50 heart50, recovery5min heart5min
+			FROM    result
+			WHERE	resultNo = (SELECT MIN(resultNo)
+					                    FROM result
+					                    WHERE userNo = #{userNo})
+			AND category = 'heartRate'
+
+		 ]]>
+	</select>
+	
+
+</mapper>
+<!-- 
+		<![CDATA[
+		 ]]>
+ -->

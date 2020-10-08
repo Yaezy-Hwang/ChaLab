@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="user">
+
+	<select id = "selectUser" parameterType= "UserVo" resultType="com.project.vo.UserVo">
+		<![CDATA[
+		
+			SELECT userNo, userId, password pw, name, userType
+			FROM users
+			WHERE userId = #{userId}
+			AND password = #{pw}
+			
+		]]>
+	</select>
+	
+	<select id="selectSameId" parameterType="String" resultType="int">
+		<![CDATA[
+		
+			SELECT count(userNo)
+			FROM users
+			WHERE userId = #{userId}
+
+		 ]]>
+	</select>
+	
+	<select id = "selectAthList" resultType="com.project.vo.UserVo">
+		<![CDATA[
+		
+			SELECT u.userNo, u.userId, u.name, u.gender, u.field, a.name adminName
+			FROM users u, users a
+			WHERE u.adminNo = a.userNo
+			AND u.userType = 'athlete'
+			ORDER BY name ASC
+			
+		]]>
+	</select>
+	
+	<select id="selectAthInfo" parameterType= "int" resultType="com.project.vo.UserVo">
+		<![CDATA[
+		
+			SELECT u.userNo, u.userId, u.password pw, u.name, u.gender, u.weight, u.height, u.field, a.userNo adminNo, a.name adminName
+			FROM users u, users a
+			WHERE u.adminNo = a.userNo
+			AND u.userNo = #{userNo}
+			
+		 ]]>
+	</select>
+	
+	<select id = "selectAdminList" resultType="com.project.vo.UserVo">
+		<![CDATA[
+		
+			SELECT userNo, name
+			FROM users
+			WHERE userType = 'admin'
+			ORDER BY name ASC
+			
+		]]>
+	</select>
+		
+	<insert id="insertUser" parameterType="UserVo">
+		<![CDATA[
+		
+			INSERT INTO users
+			VALUES(SEQ_USER_NO.nextval, #{userId}, #{pw}, #{name}, 'athlete', #{gender}, #{height}, #{weight}, #{adminNo}, #{field})
+			
+		 ]]>
+	</insert>
+	
+	<update id="updateAthInfo" parameterType="UserVo">
+		<![CDATA[
+		
+			UPDATE users
+			SET
+				password = #{pw},
+				name = #{name},
+				weight = #{weight},
+				height = #{height},
+				adminNo = #{adminNo},
+				field = #{field}
+			WHERE userNo = #{userNo}
+		
+		 ]]>
+	</update>
+	
+
+</mapper>
+<!-- 
+		<![CDATA[
+		 ]]>
+ -->
